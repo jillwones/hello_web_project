@@ -25,6 +25,13 @@ class Application < Sinatra::Base
 
     return "#{names}"
   end
+
+  post '/sort-names' do 
+    names = params[:names]
+    array_names = names.split(',')
+    array_names.sort!
+    return array_names.join(',')
+  end
 end
 
 # routes = way to associate a request method to a block of code
