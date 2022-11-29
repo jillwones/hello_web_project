@@ -9,8 +9,7 @@ class Application < Sinatra::Base
   end
 
   get '/hello' do 
-    name = params[:name]
-    return "Hello #{name}"
+    return erb(:hello)
   end
 
   post '/submit' do 
@@ -31,6 +30,10 @@ class Application < Sinatra::Base
     array_names = names.split(',')
     array_names.sort!
     return array_names.join(',')
+  end
+
+  get '/' do 
+    return erb(:index)
   end
 end
 
